@@ -1,0 +1,76 @@
+<html lang="pt" ng-app="trackFilling">
+
+    <head>
+        <meta charset="utf-8"/>
+        <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="js/lib/nsPopover.css">
+        <title>Trilha de Preenchimento</title>
+    </head>
+
+    <body ng-controller="trackFillingCtrl">
+
+        <div class="btDiv">
+            <button class="material-icons" ng-click="createStep('date_range', 'CCEM')">date_range</button><br>
+            <button class="material-icons" ng-click="createStep('looks_one', 'CCEM')">looks_one</button><br>
+            <button class="material-icons" ng-click="createStep('exposure_zero', 'CCEM')">exposure_zero</button><br>
+            <button class="material-icons" ng-click="createStep('radio_button_checked', 'CCEM')">radio_button_checked</button><br>
+            <button class="material-icons" ng-click="createStep('check_box', 'CCEM')">check_box</button><br>
+            <button class="material-icons" ng-click="createStep('text_format', 'CCEM')">text_format</button><br>
+            <button class="material-icons" ng-click="createStep('email', 'CCEM')">email</button><br>
+            <button class="material-icons" ng-click="createStep('access_time', 'CCEM')">access_time</button><br>
+            <button class="material-icons" ng-click="createStep('phone', 'CCEM')">phone</button><br>
+            <button class="material-icons" ng-click="createStep('message', 'CCEM')">message</button><br>
+            <button class="material-icons" ng-click="createStep('image', 'CCEM')">image</button><br>
+
+            <select ng-model="selectStage">
+                <option value="">Mudar Estagios</option>
+                <option ng-repeat="x in stages" value="{{x.choice}}">{{x.choice}}</option>
+            </select>
+            <!-- {{selectStage}} -->
+            <button ng-click="advanceStep(selectStage)">Avançar</button>
+            <!-- {{track}} -->
+
+        </div>
+
+        <md-button id="iconSubway" class="md-fab md-primary">
+            <md-icon >directions_subway</md-icon>
+        </md-button>
+        <div id="layoutContainer" ng-controller="layoutController as ctrl" style="width:100px" ng-repeat="content in track">
+            <section flex class="timeLine"></section>
+            <div layout="row" layout-align="left center">
+                    <div id="stepButtons">
+                        <md-button ns-popover ns-popover-template="tooltip"
+                        ns-popover-trigger="mouseover" ns-popover-theme="ns-popover-tooltip-theme" ns-popover-timeout="0.2"
+                         ns-popover-placement="right" ng-class="content.grade" class=" md-hue-2 md-fab md-mini">
+                            <md-icon md-no-ink>{{content.icon}}</md-icon>
+                        </md-button>
+                    </div>
+                <div>
+                    <span>{{content.time}}</span>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+
+    <script src="js/app.js"></script>
+    <script src="js/nsPopover.js"></script>
+    <script src="js/controller/trackFillingCtrl.js"></script>
+    <script src="js/controller/layoutCtrl.js"></script>
+    <script src="js/controller/popoverCtrl.js"></script>
+    <!-- referencia http://ngmodules.org/modules/nsPopover -->
+
+    <script type="text/ng-template" id="tooltip">
+        <div class="triangle"></div>
+        <div class="ns-popover-tooltip">{{content.text+i}}</div>
+    </script>
+
+</html>
