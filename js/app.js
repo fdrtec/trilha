@@ -1,2 +1,2 @@
 angular
-    .module('trackFilling',['ngMaterial','nsPopover']);
+    .module('trail',['ngMaterial','nsPopover']);

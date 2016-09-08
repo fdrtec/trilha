@@ -1,4 +1,4 @@
-
+/*####### SELETORES ######################*/
 body {
     font-size: 100%;
     font-family: "Droid Serif", serif;
@@ -11,6 +11,8 @@ h1, h2 {
     font-weight: bold;
     font-size: 15px;
 }
+
+/*########## ID'S #######################*/
 
 #layoutContainer {
     /*caixa em volta dos itens*/
@@ -27,23 +29,14 @@ h1, h2 {
     box-shadow: 0px 0px 0px 7px #e1e3f3;
 }
 
-.btDiv {
-    /*Menu de botoes para teste*/
-    display: flex;
-    margin-top: 50px;
-    margin-right: 600px;
-    */ margin-bottom: 30px;
-    float: right;
-}
-
+/*######### CLASSES ######################*/
 
 .md-fab.md-mini.step-ball:hover {
     width: 60px;
     height: 60px;
     transition: 0.3s;
-
-
 }
+
 
 .timeLine::before {
     /* Config da linha vertical */
@@ -68,4 +61,13 @@ h1, h2 {
     border-radius: 10px;
     text-align: justify;
 
+}
+
+.btDiv {
+    /*Menu de botoes para teste*/
+    display: flex;
+    margin-top: 20px;
+    margin-right: 1200px;
+    margin-bottom: 30px;
+    float: right;
 }
