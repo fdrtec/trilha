@@ -1,0 +1,51 @@
+  <md-button id="iconSubway" class="md-fab md-primary md-hue-2">
+            <md-icon >directions_subway</md-icon>
+        </md-button>
+
+
+        <div id="layoutContainer" ng-controller="layoutCtrl as ctrl" style="width:100px" ng-repeat="nodes in track">
+            <section flex class="timeLine"></section>
+            <div layout="row" layout-align="left center">
+                <div id="stepButtons">
+                    <md-button ns-popover ns-popover-template="tooltip" ns-popover-trigger="mouseover" ns-popover-theme="ns-popover-tooltip-theme" ns-popover-timeout="0.2" ns-popover-placement="right" ng-class="content.grade" class=" md-hue-2 md-fab md-mini">
+                        <md-icon>{{content.icon}}</md-icon>
+                    </md-button>
+                </div>
+                <div>
+                    <span>{{content.time}}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+----------------------------------
+
+angular
+    .module('trail',['ngMaterial','nsPopover'])
+    .directive('otusTrail', otusTrail);
+
+    function otusTrail(){
+      var directive = {
+      restrict: "AE", //Atributos e Elementos
+      templateUrl: 'app/trail-template.html',
+      scope: {
+        nodes: '='
+      },
+      link: linkFunc,
+      controller: trailCtrl,
+      controllerAS: 'vm'
+    };
+  }
+
+----------------------------------------------
+
+<otus:trail nodes=""></otus:trail>
+
+
+
+
+

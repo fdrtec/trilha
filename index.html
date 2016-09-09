@@ -5,65 +5,28 @@
         <meta charset="utf-8"/>
         <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.css">
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" href="js/lib/css/style.css">
-        <link rel="stylesheet" href="js/lib/css/nsPopover.css">
+        <link rel="stylesheet" href="app/css/style.css">
+        <link rel="stylesheet" href="app/css/nsPopover.css">
+
+        <!--Bibliotecas On line  -->
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
+
+        <script src="app/app.js"></script>
+        <script src="app/nsPopover.js"></script>
+        <script src="app/trail-ctrl.js"></script>
+        <script src="app/trail-directive.js"></script>
+        <script src="client-ctrl.js"></script>
 
         <title>Trilha de Preenchimento</title>
 
     </head>
 
-    <body ng-controller="trailCtrl">
-
-        <div class="btDiv">
-            <select ng-model="selectStage">
-                <option value="">Tipo de Estágio</option>
-                <option ng-repeat="x in stages" value="{{x.choice}}">{{x.choice}}</option>
-            </select>
-            <button ng-click="advanceStep(selectStage)">Avançar</button>
-        </div>
-
-
-        <md-button id="iconSubway" class="md-fab md-primary md-hue-2">
-            <md-icon >directions_subway</md-icon>
-        </md-button>
-
-
-        <div id="layoutContainer" ng-controller="layoutCtrl as ctrl" style="width:100px" ng-repeat="content in track">
-            <section flex class="timeLine"></section>
-            <div layout="row" layout-align="left center">
-                <div id="stepButtons">
-                    <md-button ns-popover ns-popover-template="tooltip" ns-popover-trigger="mouseover" ns-popover-theme="ns-popover-tooltip-theme" ns-popover-timeout="0.2" ns-popover-placement="right" ng-class="content.grade" class=" md-hue-2 md-fab md-mini">
-                        <md-icon>{{content.icon}}</md-icon>
-                    </md-button>
-                </div>
-                <div>
-                    <span>{{content.time}}</span>
-                </div>
-            </div>
-        </div>
-
-
+    <body ng-controller="clientCtrl as controller">
+        <otus:trail nodes="controller.tracks"></otus:trail>
     </body>
-
-    <!--Bibliotecas On line  -->
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-aria.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-messages.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.0.0/angular-material.min.js"></script>
-
-    <!--Angular JS-->
-    <script src="js/app.js"></script>
-    <!--Biblioteca tooltip  -->
-    <script src="js/lib/nsPopover.js"></script>
-    <!--Controle do componente  -->
-    <script src="js/controller/trailCtrl.js"></script>
-    <!-- referencia http://ngmodules.org/modules/nsPopover -->
-
-    <!--Geração do tooltip -->
-    <script type="text/ng-template" id="tooltip">
-        <div class="triangle"></div>
-        <div class="ns-popover-tooltip">{{content.text+i}}</div>
-    </script>
 
 </html>
